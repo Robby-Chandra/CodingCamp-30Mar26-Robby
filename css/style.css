@@ -1,0 +1,256 @@
+/* Base reset & layout */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: system-ui, -apple-system, sans-serif;
+  background: #f5f5f5;
+  color: #222;
+  min-height: 100vh;
+}
+
+header {
+  background: #2563eb;
+  color: #fff;
+  padding: 1rem 1.5rem;
+}
+
+header h1 {
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+main {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 1rem;
+  padding: 1.5rem;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+/* Form section */
+#form-section {
+  background: #fff;
+  border-radius: 8px;
+  padding: 1.25rem;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+#form-section h2 {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  color: #444;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  margin-bottom: 0.75rem;
+}
+
+.form-group label {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #555;
+}
+
+.form-group input,
+.form-group select {
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  outline: none;
+  transition: border-color 0.15s;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  border-color: #2563eb;
+}
+
+.form-error {
+  color: #dc2626;
+  font-size: 0.85rem;
+  margin-bottom: 0.5rem;
+}
+
+button[type="submit"] {
+  width: 100%;
+  padding: 0.6rem;
+  background: #2563eb;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+button[type="submit"]:hover {
+  background: #1d4ed8;
+}
+
+/* Summary section */
+#summary {
+  background: #fff;
+  border-radius: 8px;
+  padding: 1.25rem;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+#balance {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.balance-label {
+  font-size: 0.85rem;
+  color: #666;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.balance-amount {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #2563eb;
+}
+
+#chart-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 180px;
+}
+
+#chart {
+  max-width: 100%;
+  max-height: 220px;
+}
+
+#chart-placeholder {
+  color: #aaa;
+  font-size: 0.9rem;
+  position: absolute;
+}
+
+/* Transaction list section */
+#list-section {
+  grid-column: 1 / -1;
+  background: #fff;
+  border-radius: 8px;
+  padding: 1.25rem;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+#list-section h2 {
+  font-size: 1rem;
+  margin-bottom: 0.75rem;
+  color: #444;
+}
+
+#transaction-list {
+  overflow-y: auto;
+  max-height: 300px;
+}
+
+.empty-state {
+  color: #aaa;
+  font-size: 0.9rem;
+  text-align: center;
+  padding: 1rem 0;
+}
+
+/* Transaction row */
+.transaction-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.6rem 0.5rem;
+  border-bottom: 1px solid #f0f0f0;
+  gap: 0.5rem;
+}
+
+.transaction-row:last-child {
+  border-bottom: none;
+}
+
+.transaction-name {
+  flex: 1;
+  font-size: 0.95rem;
+}
+
+.transaction-amount {
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: #111;
+  min-width: 70px;
+  text-align: right;
+}
+
+/* Category badges */
+.badge {
+  display: inline-block;
+  padding: 0.2rem 0.55rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.badge-food {
+  background: #d1fae5;
+  color: #065f46;
+}
+
+.badge-transport {
+  background: #dbeafe;
+  color: #1e40af;
+}
+
+.badge-fun {
+  background: #ffedd5;
+  color: #9a3412;
+}
+
+/* Delete button */
+.btn-delete {
+  background: none;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  padding: 0.25rem 0.6rem;
+  font-size: 0.8rem;
+  color: #dc2626;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.btn-delete:hover {
+  background: #fee2e2;
+}
+
+/* Responsive: stack on small screens */
+@media (max-width: 600px) {
+  main {
+    grid-template-columns: 1fr;
+  }
+
+  #list-section {
+    grid-column: 1;
+  }
+}
